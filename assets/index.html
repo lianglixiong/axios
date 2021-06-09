@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<style>
+    #app{
+        margin: 100px;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <button type="button" class="btn btn-primary">get</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-info">Info</button>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.min.js"></script>
+<<script src="/assets/http.js"></script>
+<script>
+    const btn = document.querySelectorAll(".btn");
+    console.log(btn)
+    
+    btn[0].addEventListener("click",function(){
+        console.log(6666)
+        instance.get('/common/joke/getJokesByRandom', {
+            params: {
+                "apiKey":"gF7yLuEa9d94474765b184e4eff8d3ddc9676f363b9b63f",
+                "pageSize":20
+            }
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
+    })
+
+</script>
+
+</html>
